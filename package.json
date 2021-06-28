@@ -10,7 +10,8 @@
     "lintsrc": "lint src ",
     "prepare": "husky install",
     "test": "jest",
-    "test:watch": "yarn test --watch"
+    "test:watch": "yarn test --watch",
+    "codegen": "graphql-codegen --config codegen.yml"
   },
   "lint-staged": {
     "src/**/*": [
@@ -19,6 +20,11 @@
     ]
   },
   "dependencies": {
+    "@styled-icons/evaicons-outline": "^10.34.0",
+    "@styled-icons/fluentui-system-filled": "^10.35.0",
+    "@styled-icons/fluentui-system-regular": "^10.35.0",
+    "graphql": "^15.5.1",
+    "graphql-request": "^3.4.0",
     "leaflet": "^1.7.1",
     "next": "11.0.0",
     "next-pwa": "^5.2.21",
@@ -30,6 +36,10 @@
   },
   "devDependencies": {
     "@babel/preset-typescript": "^7.14.5",
+    "@graphql-codegen/add": "^2.0.2",
+    "@graphql-codegen/cli": "1.21.5",
+    "@graphql-codegen/typescript": "1.22.3",
+    "@graphql-codegen/typescript-operations": "1.18.2",
     "@testing-library/jest-dom": "^5.14.1",
     "@testing-library/react": "^11.2.7",
     "@types/jest": "^26.0.23",

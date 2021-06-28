@@ -1,10 +1,20 @@
-import dynamic from 'next/dynamic'
+import client from 'graphql/client'
+import { HomeTemplate } from 'templates/Home'
+import { MapProps } from 'components/Map'
 
-//Export tem que ser default da pagina
-const Map = dynamic(() => import('components/Map'), { ssr: false })
+import { GET_PLACES } from 'graphql/queries'
+import { GetPlacesQuery } from 'graphql/generated/graphql'
 
-//O leaflet precisa do dinamic, para isso precisamos utilizar ele pela doc do nextjs/dynamic
+export default function Home({ places }: MapProps) {
+  return <HomeTemplate places={places} />
+}
 
-export default function Home() {
-  return <Map />
+export const getStaticProps = async () => {
+  const { places } = await client.request<GetPlacesQuery>(GET_PLACES)
+
+  return {
+    props: {
+      places
+    }
+  }
 }
