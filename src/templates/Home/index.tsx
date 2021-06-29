@@ -1,4 +1,5 @@
 import dynamic from 'next/dynamic'
+import { NextSeo } from 'next-seo'
 import { LinkWrapper } from 'components/LinkWrapper'
 //Export tem que ser default da pagina
 const Map = dynamic(() => import('components/Map'), { ssr: false })
@@ -14,6 +15,27 @@ import { MapProps } from 'components/Map'
 export const HomeTemplate = ({ places }: MapProps) => {
   return (
     <>
+      <NextSeo
+        title="My trips"
+        description="A simple project to show in a map the places that I went and show more informations and photos when clicled."
+        canonical="https://my-trips.devthiago.com.br"
+        openGraph={{
+          url: 'https://my-trips.devthiago.com.br',
+          title: 'My trips',
+          description:
+            'A simple project to show in a map the places that I went and show more informations and photos when clicled.',
+
+          images: [
+            {
+              url: 'https://my-trips.devthiago.com/img/bla',
+              width: 1280,
+              height: 720,
+              alt: 'My trips'
+            }
+          ],
+          site_name: 'My trips'
+        }}
+      />
       <LinkWrapper href="/about">
         <BookInformation size={32} aria-label="About" />
       </LinkWrapper>

@@ -1,5 +1,4 @@
 import { LinkWrapper } from 'components/LinkWrapper'
-import React from 'react'
 import * as S from './styles'
 import { CloseSquareOutline } from '@styled-icons/evaicons-outline/'
 
